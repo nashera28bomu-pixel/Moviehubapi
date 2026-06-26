@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: cymor-movie-api
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: MOVIEBOX_BASE_URL
+        value: https://h5-api.aoneroom.com
+      - key: MOVIEBOX_TIMEOUT
+        value: "15000"
+      - key: CACHE_ENABLED
+        value: "true"
+      - key: CACHE_MAX_ITEMS
+        value: "500"
+      - key: CACHE_DEFAULT_TTL
+        value: "600"
